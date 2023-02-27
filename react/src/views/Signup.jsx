@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import {createRef, useState} from "react";
 import axiosClient from "../axios-client.js";
-import {useStateContext} from "../contexts/ContextProvider.jsx";
+import {useStateContext} from "../context/ContextProvider.jsx";
 
 export default function Signup() {
     const nameRef = createRef()
@@ -15,10 +15,10 @@ export default function Signup() {
         ev.preventDefault()
 
         const payload = {
-        name: nameRef.current.value,
-        email: emailRef.current.value,
-        password: passwordRef.current.value,
-        password_confirmation: passwordConfirmationRef.current.value,
+            name: nameRef.current.value,
+            email: emailRef.current.value,
+            password: passwordRef.current.value,
+            password_confirmation: passwordConfirmationRef.current.value,
         }
         axiosClient.post('/signup', payload)
         .then(({data}) => {
