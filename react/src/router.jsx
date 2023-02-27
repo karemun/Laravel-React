@@ -6,10 +6,11 @@ import NotFound from './views/NotFound';
 import DefaultLayout from "./components/DefaultLayout";
 import GuestLayout from "./components/GuestLayout";
 import Dashboard from "./views/Dashboard";
+import UserForm from './views/UserForm'
 
 //Se crean las rutas
 const router = createBrowserRouter([
-    { /* Dirige a Default, que a su ves dirige a una de las dos vistas */
+    { /* Dirige a Default, que a su ves dirige a una de las siguientes vistas */
         path: '/',
         element: <DefaultLayout/>,
         children: [
@@ -24,6 +25,14 @@ const router = createBrowserRouter([
             {
                 path: '/users',
                 element: <Users/>
+            },
+            {
+                path: '/users/new',
+                element: <UserForm key="userCreate" />
+            },
+            {
+                path: '/users/:id',
+                element: <UserForm key="userUpdate" />
             },
         ]
     },
