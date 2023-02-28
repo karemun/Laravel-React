@@ -53,7 +53,9 @@ function Users() {
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    {loading && <tbody> {/** Si loading es true */}
+                    {/** Si loading es true */}
+                    {loading &&
+                    <tbody>
                         <tr>
                             <td colSpan="5" className="text-center">Loading...</td>
                         </tr>
@@ -61,7 +63,7 @@ function Users() {
                     }
                     {!loading && <tbody>
                         {users.map(u => (
-                            <tr>
+                            <tr key={u.id}>
                                 <td> {u.id} </td>
                                 <td> {u.name} </td>
                                 <td> {u.email} </td>
