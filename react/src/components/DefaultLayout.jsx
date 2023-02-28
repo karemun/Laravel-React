@@ -4,7 +4,7 @@ import {useStateContext} from "../context/ContextProvider";
 import {useEffect} from 'react'
 
 export default function DefaultLayout() {
-    const {user, token, setUser, setToken} = useStateContext(); //Variables a usar
+    const {user, token, notification, setUser, setToken} = useStateContext(); //Variables a usar
 
     if (!token) { //Si el usuario no se ha autenticado
         return <Navigate to="/login"/> //Redirige a login
@@ -50,6 +50,11 @@ export default function DefaultLayout() {
                     <Outlet/>
                 </main>
             </div>
+            {notification &&
+                <div className="notification">
+                    {notification}
+                </div>
+            }
         </div>
     )
 }
